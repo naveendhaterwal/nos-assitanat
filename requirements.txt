@@ -7,3 +7,4 @@ qdrant-client
 fastembed
 python-dotenv
 pydantic
+langchain-google-genai
