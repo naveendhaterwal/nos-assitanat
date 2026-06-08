@@ -2,7 +2,7 @@
 title: Nos Assistant
 emoji: 🚀
 colorFrom: green
-colorTo: black
+colorTo: gray
 sdk: docker
 app_file: main.py
 pinned: false
