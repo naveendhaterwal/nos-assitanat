@@ -142,7 +142,17 @@ async def rag_node(state: CopilotState):
         return {"context": [], "is_followup": True}
         
     print(f"RAG hit: score={best_score:.3f}")
-    return {"context": [r.payload.get("text", "") for r in best_points], "is_followup": False}
+    
+    context_list = []
+    for r in best_points:
+        text = r.payload.get("text", "")
+        url = r.payload.get("url", "") or r.payload.get("source", "")
+        if url:
+            context_list.append(f"Content: {text}\nSource URL: {url}")
+        else:
+            context_list.append(text)
+            
+    return {"context": context_list, "is_followup": False}
 
 async def troubleshooting_node(state: CopilotState):
     last_msg = extract_text(state["messages"][-1].content)
@@ -156,7 +166,17 @@ async def troubleshooting_node(state: CopilotState):
             with_payload=True
         )
         points = getattr(results, "points", results)
-        return {"context": [r.payload.get("text", "") for r in points], "intent": "nosana_errors"}
+        
+        context_list = []
+        for r in points:
+            text = r.payload.get("text", "")
+            url = r.payload.get("url", "") or r.payload.get("source", "")
+            if url:
+                context_list.append(f"Content: {text}\nSource URL: {url}")
+            else:
+                context_list.append(text)
+                
+        return {"context": context_list, "intent": "nosana_errors"}
     except:
         return {"context": []}
 

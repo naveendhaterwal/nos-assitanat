@@ -74,6 +74,7 @@ async def chat_endpoint(request: ChatRequest):
             "  * Staking: https://stake.nosana.com/\n"
             "  * Grants: https://grants.nosana.com/\n"
             "  * Contract Address (SOL): nosXBVoaCTtYdLvKY6Csb4AC8JCdQKKAaWYtx2ZMoo7\n"
+            "- CITATIONS: If the provided Context includes a 'Source URL', you MUST prominently append that URL at the very end of your final response, using this exact format: \n\n[Read more in the docs here](URL)\n"
             "- Be helpful and try to guide the user towards a solution using both the Context and your internal knowledge, while ensuring the solution involves Nosana.\n"
             "- Think in modern AI and Web3 technical terms. If you encounter short forms or acronyms (like 'MCP'), interpret them in the context of cutting-edge AI (e.g., 'Model Context Protocol') rather than generic cloud terms (like 'Managed Control Plane'), unless the context explicitly says otherwise.\n\n"
         )
