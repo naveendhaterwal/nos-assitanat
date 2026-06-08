@@ -1,3 +1,13 @@
+---
+title: Nos Assistant
+emoji: 🚀
+colorFrom: green
+colorTo: black
+sdk: docker
+app_file: main.py
+pinned: false
+---
+
 # Nos Assistant Backend
 
 An intelligent, context-aware AI backend built specifically for the Nosana Decentralized GPU Network.
